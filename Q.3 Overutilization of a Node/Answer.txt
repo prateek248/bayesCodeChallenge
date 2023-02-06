@@ -1,0 +1,21 @@
+Below is my action plan:
+1. I will check the below metrices using infrastructure monitoring tool console:
+    - CPU utilization
+    - Memory utilization
+    - Swap utilization
+    - Network throughput
+    - Disk utilization
+2. Then I will check why this node is overloaded with requests by describing the tags on the node.
+3. Post that I will whether my load balancer service is working fine or not. Might be a case that somehow the node exited the target group or there is a rule because of which maximum load is being catered by this node only.
+4. I will logon to the server and see the outputs of below:
+    - "top" command to see cpu utilization by process
+    - "free -m" command to see available memory and swap.
+    - "df -kh" to see if any device is getting heavily occupied resultiung in inability to write.
+    - "iostat" to see reads/writes
+    - "vmstat" to see virtual memory stats.
+5. Then I will check system logs in /var/log/messages
+6. I will check if the log file of the application is being made immutable by someone.
+7. Validate if the application logs are being written on an network file system and if iuts unmounted.
+8. Validate if log file is used by some other process.
+9. Go through application logs to see any OOM exceptions or any other uncaught errors and exceptions.
+    
